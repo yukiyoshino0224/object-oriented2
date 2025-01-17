@@ -34,8 +34,12 @@ public class Main {
         materials[3].setCost(500);
 
         MedalFactory medalFactory = new MedalFactory();
+
+        medalFactory.setEmployees(employees);
+        
         for(int i = 0; i < materials.length; i++){
-            medalFactory.makeMedal(materials[i]);
+            Material material = materials[i];
+            medalFactory.makeMedal(material);
         }
 
     }

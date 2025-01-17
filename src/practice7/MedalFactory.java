@@ -10,25 +10,25 @@ public class MedalFactory {
         this.employees = employees;
     }
 
-    public String makeMedal(Material materials){ 
+    public String makeMedal(Material material){ 
 
         Medal medal = new Medal();
         
         int totalSalary = 0;
 
-        for(int i = 0; i < employees.length; i++){
+         for(int i = 0; i < employees.length; i++){
             totalSalary += employees[i].getSalary();
-        }
+        } 
         
-        if("金".equals(materials.getName())){
+        if("金".equals(material.getName())){
             medal.setName("金メダル");
-            medal.setPrice(materials.getCost() + totalSalary);
-        }else if("銀".equals(materials.getName())){
+            medal.setPrice(material.getCost() + totalSalary);
+        }else if("銀".equals(material.getName())){
             medal.setName("銀メダル");
-            medal.setPrice(materials.getCost());
-        }else if("銅".equals(materials.getName())){
+            medal.setPrice(material.getCost());
+        }else if("銅".equals(material.getName())){
             medal.setName("銅メダル");
-            medal.setPrice(materials.getCost());
+            medal.setPrice(material.getCost());
         }else{
             medal.setName("不良品");
             medal.setPrice(0);
