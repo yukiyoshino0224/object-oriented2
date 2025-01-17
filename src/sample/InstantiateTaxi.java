@@ -13,4 +13,4 @@ public class InstantiateTaxi {
     }
 
 }
-Users/yoshi/OneDrive/ドキュメント/introduction/object-oriented2
+Users/yoshi/OneDrive/ドキュメント/introduction/object-oriented2g
