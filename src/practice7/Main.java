@@ -1,46 +1,44 @@
 package practice7;
 
 public class Main {
-
     public static void main(String[] args) {
-        Employee[] employees = new Employee[3];
-        employees[0] = new Employee();
-        employees[0].setName("山田");
-        employees[0].setSalary(20000);
+		
+		final int MATERIAL_COUNT = 4;
 
-        employees[1] = new Employee();
-        employees[1].setName("海田");
-        employees[1].setSalary(22000);
+		/*
+		 * 従業員作成
+		 */
+		Employee[] employees = new Employee[3];
+		employees[0] = new Employee("山田", 200000);
+		employees[1] = new Employee("海田", 220000);
+		employees[2] = new Employee("川田", 240000);
 
-        employees[2] = new Employee();
-        employees[2].setName("川田");
-        employees[2].setSalary(24000);
+		/*
+		 * 材料作成
+		 */
+		Material[] toyMaterial = new Material[MATERIAL_COUNT];
+		toyMaterial[0] = new Material(MedalConstant.GOLD_NAME, MedalConstant.GOLD_COST);
+		toyMaterial[1] = new Material(MedalConstant.SILVER_NAME, MedalConstant.SILVER_COST);
+		toyMaterial[2] = new Material(MedalConstant.BRONZE_NAME, MedalConstant.BRONZE_COST);
+		toyMaterial[3] = new Material(MedalConstant.WOOD_NAME, MedalConstant.WOOD_COST);
+		
 
-        Material[] materials = new Material[4];
-        materials[0] = new Material();
-        materials[0].setName("金");
-        materials[0].setCost(10000);
+		/*
+		 * 工場作成
+		 */
+		MedalFactory toyFactory = new MedalFactory(employees);
 
-        materials[1] = new Material();
-        materials[1].setName("銀");
-        materials[1].setCost(5000);
+		/*
+		 * 製品作成
+		 */
+		Medal[] medals = toyFactory.makeMedal(toyMaterial);
 
-        materials[2] = new Material();
-        materials[2].setName("銅");
-        materials[2].setCost(1000);
-
-        materials[3] = new Material();
-        materials[3].setName("木");
-        materials[3].setCost(500);
-
-        MedalFactory medalFactory = new MedalFactory();
-
-        medalFactory.setEmployees(employees);
-        
-        for(int i = 0; i < materials.length; i++){
-            Material material = materials[i];
-            medalFactory.makeMedal(material);
-        }
-
-    }
+		/*
+		 * 製品情報表示
+		 */
+		for (Medal medal : medals) {
+			System.out.println("製品名 : " + medal.getName() + " / 価格 : " + medal.getPrice() + "円");
+			
+		}
+	}
 }
